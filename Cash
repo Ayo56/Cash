@@ -1,0 +1,43 @@
+package com.company;
+
+import java.util.Scanner;
+
+public class Main {
+
+    public static void main(String[] args) {
+        
+        Scanner input = new Scanner(System.in);
+        System.out.println("How much change is owed to you:");
+        double changeamount = input.nextDouble();
+
+        while (changeamount <=0 || changeamount ==(' '))
+        {
+            System.out.print(">0:");
+            changeamount = input.nextDouble();
+        }
+
+        int cents = (int) Math.round(changeamount * 100);
+        int availablecoincount= 0;
+
+        while (cents >= 25)
+        { availablecoincount++;
+            cents -= 25;
+        }
+
+        while (cents >= 10)
+        { availablecoincount++;
+            cents -= 10;
+        }
+
+        while (cents >= 5)
+        { availablecoincount++;
+            cents -= 5;
+        }
+
+        while (cents >= 1)
+        { availablecoincount++;
+            cents -= 1;
+        }
+        System.out.println( "Available coins to you" + availablecoincount + " coins.");
+    }
+}
